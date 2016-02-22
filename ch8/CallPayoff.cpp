@@ -46,4 +46,15 @@ void CallPayoff::Strike(double NewStrike)
 CallPayoff& CallPayoff::operator = (const CallPayoff &source)
 {	// Assignment operator
 
+	//Exit if same object
+	if(this == &source) return *this;
+
+	// Call base class assignment
+	Payoff::operator = (source);
+
+	// Copy state
+	K = source.K;
+
+	return *this;
 }
+
