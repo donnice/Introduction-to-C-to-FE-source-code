@@ -61,5 +61,10 @@ CallPayoff& CallPayoff::operator = (const CallPayoff &source)
 // Implement the pure virtual payoff function from base class
 double CallPayoff::payoff(double S) const
 {
-	
+	if (S > K)
+		return (S - K);
+
+	return 0.0;
+
+	// remark; possible to say max (S-K,0)
 }
