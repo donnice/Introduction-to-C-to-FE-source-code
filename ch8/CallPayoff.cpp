@@ -58,3 +58,8 @@ CallPayoff& CallPayoff::operator = (const CallPayoff &source)
 	return *this;
 }
 
+// Implement the pure virtual payoff function from base class
+double CallPayoff::payoff(double S) const
+{
+	
+}
