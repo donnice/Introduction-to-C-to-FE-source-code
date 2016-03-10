@@ -47,7 +47,18 @@ int main()
 	bs.printStatistics();
 
 	// 2. Newton Methos
-	
+	double initialGuess = 1.2;
+	NewtonRaphsonSolver nr(initialGuess);
+	nr.myF = Func1;
+	nr.derivative = DerivativeFunc1;
+	nr.tol = 0.0001;
+
+	double resultNR = nr.solve();
+	cout << "Newton Raphson: "	 << resultNR << endl;
+
+	nr.printStatistics();
+
+	// Plese test other method yourselves
 
 	return 0;
 
