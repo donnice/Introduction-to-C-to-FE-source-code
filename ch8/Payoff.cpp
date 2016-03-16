@@ -12,3 +12,20 @@ Payoff::Payoff()
 	// Default constructor
 }
 
+Payoff::Payoff(const Payoff& source)
+{
+	// Copy constructor
+}
+
+Payoff::~Payoff()
+{
+	// Destructor
+}
+
+Payoff& Payoff::operator = (const Payoff& source)
+{	// Assignment operator
+	if(this == &source)
+		return *this;
+
+	return *this;
+}
