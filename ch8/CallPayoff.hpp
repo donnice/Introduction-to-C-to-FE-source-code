@@ -25,6 +25,15 @@ public:
 
 	// Selectors
 	double Strike() const;					// Return strike price
-	 
 
-}
+	// Modifiers
+	void Strike(double NewStrike);			// Set strike price
+
+	CallPayoff& operator = (const CallPayoff& source);	// Assignment operator
+
+	// Implement the pure virtual payoff function from base class
+	double payoff(double S) const; 
+
+};
+
+#endif
