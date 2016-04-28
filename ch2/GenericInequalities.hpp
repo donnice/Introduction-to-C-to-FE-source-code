@@ -13,3 +13,16 @@
 /////////////////Useful functions///////////////////
 
 //Max and Min of two numbers
+template <class Numeric>
+	Numeric Max(const Numeric& x, const Numeric& y);
+template <class Numeric>
+	Numeric Min(const Numeric& x, const Numeric& y);
+
+//Max and min of three numbers
+template <class Numeric>
+	Numeric Max(const Numeric& x, const Numeric& y, const Numeric& z);
+template <class Numeric>
+	Numeric Min(const Numeric& x, const Numeric& y, const Numeric& z);
+
+#endif
+
