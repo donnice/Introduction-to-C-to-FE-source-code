@@ -7,7 +7,7 @@
 //(C) Shujie CHEN 2016
 //
 
-#ifdef GenericInequalities_HPP
+#ifndef GenericInequalities_HPP
 #define GenericInequalities_HPP
 
 /////////////////Useful functions///////////////////
