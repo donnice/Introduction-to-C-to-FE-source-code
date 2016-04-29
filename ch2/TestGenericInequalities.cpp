@@ -10,7 +10,7 @@ int main()
 	cout << "Give the first Number:";
 	cin >> d1;
 	cout<<"Give the second number:";
-	cin >> s2;
+	cin >> d2;
 
 	char c;
 	cout << "Max value is: "<<Max<int>(d1,d2)<<endl;
