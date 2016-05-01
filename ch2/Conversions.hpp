@@ -7,6 +7,12 @@
 #ifndef Conversions_HPP
 #define Conversions_HPP
 
+#include <string>
+#include <sstream>
+#include <iostream>
+
+using namespace std;
+
 /////////////////Useful functions///////////////////
 //getString()
 

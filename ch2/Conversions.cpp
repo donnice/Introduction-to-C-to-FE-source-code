@@ -9,6 +9,10 @@
 #define Conversions_CPP
 
 #include "Conversions.hpp"
+#include <string>
+#include <sstream>
+
+using namespace std;
 
 /////////////////Useful functions///////////////////
 //getString()
