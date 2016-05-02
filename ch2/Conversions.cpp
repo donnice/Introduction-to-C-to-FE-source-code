@@ -1,28 +1,42 @@
-//Conversions.cpp
+//Conversions.hpp
 //
 //template of getString()
 //
 //(C) Shuije CHEN @2016
-//
 
-#ifndef Conversions_CPP
-#define Conversions_CPP
+#ifndef Conversions_HPP
+#define Conversions_HPP
 
-#include "Conversions.hpp"
 #include <string>
-#include <sstream>
-
 using namespace std;
+#include <stddef.h>
+#include "Conversions.hpp"
 
 /////////////////Useful functions///////////////////
 //getString()
 
-template <typename T>
-string getString(const T& value)
+std::string getString(long j)
 {
-	stringstream s;
-	s << value;
-	return s.str();
+	char str[200];
+	sprintf(str, "%d",j);
+	std::string result(str);
+	return result;
+}
+
+std::string getString(int j)
+{
+	char str[200];
+	sprintf(str, "%d",j);
+	std::string result(str);
+	return result;
+}
+
+std::string getString(size_t j)
+{
+	char str[200];
+	sprintf(str, "%d",j);
+	std::string result(str);
+	return result;
 }
 
 ////////////////////////////////////////////

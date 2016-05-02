@@ -8,16 +8,17 @@
 #define Conversions_HPP
 
 #include <string>
-#include <sstream>
-#include <iostream>
-
 using namespace std;
+#include <stddef.h>
 
 /////////////////Useful functions///////////////////
 //getString()
 
-template <typename T>
-	string getString(const T& value);
+std::string getString(long j);
+
+std::string getString(int j);
+
+std::string getString(size_t j);
 
 ////////////////////////////////////////////
 #endif

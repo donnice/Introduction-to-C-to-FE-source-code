@@ -9,29 +9,30 @@
 #include <sstream>
 #include <string>
 #include <iostream>
-#include "Conversions.hpp"
 
 using namespace std;
+
+template <typename T>
+     string getString(const T& value)
+ {
+ 	stringstream s;
+	s << value;
+	return s.str();
+ }
 
 int main()
 {
 	int i = 10;
 	long j = 1234567890;
 	float f = 3.14f;
-	double d = 2.71222222223;
-
+	double d = 2.712222222223;
 	string myString = getString<int>(i);
-	cout<< myString << endl;
-
+	cout << myString << endl;
 	myString = getString<long>(j);
-	cout<< myString << endl;
-
+	cout << myString << endl;
 	myString = getString<float>(f);
-	cout<< myString << endl;
-
+	cout << myString << endl;
 	myString = getString<double>(d);
-	cout<< myString << endl;
-
-	return 0;	
-
+	cout << myString << endl;
+	return 0;
 }
