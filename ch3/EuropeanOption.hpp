@@ -1,3 +1,9 @@
+// EuropeanOption.hpp
+//
+// Author: Daniel Duffy
+//
+// (C) Shujie CHEN @2016
+//	
 class EuropeanOption
 {
 private:
