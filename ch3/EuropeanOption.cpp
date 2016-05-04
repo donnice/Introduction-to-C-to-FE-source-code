@@ -10,6 +10,8 @@
 
 #include "EuropeanOption.hpp"	// Declarations of functions
 #include <math.h>				// For mathematical functions, exp()
+#include <cmath>
+#include <string>
 
 // Kernel Functions
 double N(double x) const
@@ -99,7 +101,7 @@ EuropeanOption::EuropeanOption(const EuropeanOption& o2)
 
 EuropeanOption::EuropeanOption(const string& optionType)
 {
-	init()
+	init();
 	optType = optionType;
 
 	if(optType == "c")

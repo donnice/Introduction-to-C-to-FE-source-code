@@ -4,6 +4,7 @@
 //
 // (C) Shujie CHEN @2016
 //	
+
 class EuropeanOption
 {
 private:
@@ -24,6 +25,7 @@ public:
 	double T;			// Expiry date
 	double U;			// Current underlying price
 	double b;			// Cost of carry
+	string optType;
 
 public:
 	// Constructors
@@ -43,4 +45,4 @@ public:
 
 	// Modifier functions
 	void toggle();
-}
+};
