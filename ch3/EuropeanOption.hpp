@@ -19,6 +19,7 @@ private:
 	double PutPrice() const;
 	double CallDelta() const;
 	double PutDelta() const;
+	double N(double x) const;
 
 public:
 	// Public member data for convenience

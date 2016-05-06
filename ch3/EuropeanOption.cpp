@@ -9,21 +9,16 @@
 
 
 #include "EuropeanOption.hpp"	// Declarations of functions
-				// For mathematical functions, exp()
-#include <cmath>
+#include <cmath>				// For mathematical functions, exp()
+#include <math.h>
 #include <string>
 
 using namespace std;
 
 // Kernel Functions
-double N(double x)
+double EuropeanOption::N(double x) const
 {
-	if(x < 0)
-		return 0;
-	else if(x > 0 && x < 1)
-		return x;
-	else
-		return 1.0;
+	return 1.0;
 }
 
 double EuropeanOption::CallPrice() const
@@ -155,3 +150,4 @@ void EuropeanOption::toggle()
 		optType = "C";
 
 }
+
