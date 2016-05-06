@@ -5,6 +5,9 @@
 // (C) Shujie CHEN @2016
 //	
 
+#include <string>
+using namespace std;
+
 class EuropeanOption
 {
 private:

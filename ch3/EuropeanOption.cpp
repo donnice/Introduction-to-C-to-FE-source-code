@@ -9,12 +9,14 @@
 
 
 #include "EuropeanOption.hpp"	// Declarations of functions
-#include <math.h>				// For mathematical functions, exp()
+				// For mathematical functions, exp()
 #include <cmath>
 #include <string>
 
+using namespace std;
+
 // Kernel Functions
-double N(double x) const
+double N(double x)
 {
 	if(x < 0)
 		return 0;
