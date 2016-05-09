@@ -32,4 +32,17 @@ public:
 
 };
 
+class BisectionSolver: public NonLinearSolver
+{
+public:
+
+		// Interval where we seek a solution
+		double a;
+		double b;
+
+private:
+
+
+};
+
 }
