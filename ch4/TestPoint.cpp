@@ -19,10 +19,25 @@ private:
 
 public:
 
-	Point();
-	Point(double xs, double ys);
-	Point(const Point& source);
-	virtual ~Point();
+	Point();						// Default constructor
+	Point(double xs, double ys);	// Constructor with coordinates
+	Point(const Point& source);		// Copy of constructor
+	virtual ~Point();				// Destructor
 
-	double X() const;
+	double X() const;				// return X
+	double Y() const;				// return Y
+
+	void X(double NewX);			// Set X
+	void Y(double NewY);			// Set Y
+
+};
+
+double Point::X() const
+{
+	return x;
+}
+
+double Point::Y() const
+{
+	return y;
 }
