@@ -40,10 +40,22 @@ double Sum(SampleClass myClass)
 	return result;
 };
 
+double Sum2(SampleClass& myClass)
+{
+	double result = myClass.contents[0];
+	for(int i = 1; i < 1000; i++)
+	{
+		result += myClass.contents[i];
+	}
+
+	return result;
+}
+
 int main()
 {
 	SampleClass sc(1.0);
-	double sum = Sum(sc);
+	double sum = Sum2(sc);
+	cout << sum << endl;
 
 	return 0;
 }
