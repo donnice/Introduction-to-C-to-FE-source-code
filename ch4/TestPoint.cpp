@@ -32,6 +32,22 @@ public:
 
 };
 
+Point::Point()
+{
+	
+}
+
+Point::Point(double xs, double ys)
+{
+	x = xs;
+	y = ys;
+}
+
+Point::~Point()
+{
+	cout << "Point is destructed" << endl;
+}
+
 double Point::X() const
 {
 	return x;
@@ -40,4 +56,14 @@ double Point::X() const
 double Point::Y() const
 {
 	return y;
+}
+
+int main()
+{
+	Point p1(1.0,3.14);
+
+	cout << "First coordinate: " << p1.X() << endl;
+	cout << "Second coordinate: " << p1.Y() << endl;
+
+	return 0;
 }
