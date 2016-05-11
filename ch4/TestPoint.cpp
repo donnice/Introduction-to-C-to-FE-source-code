@@ -32,6 +32,14 @@ public:
 
 };
 
+class Point::public Shape
+{
+private:
+
+	// Properties for x- and y-coordinates
+	
+};
+
 Point::Point()
 {
 	
@@ -58,12 +66,30 @@ double Point::Y() const
 	return y;
 }
 
+void Point::X(double NewX)
+{
+	x = NewX;
+} 
+
+void Point::Y(double NewY)
+{
+	y = NewY;
+}
+
+
+
 int main()
 {
 	Point p1(1.0,3.14);
 
 	cout << "First coordinate: " << p1.X() << endl;
 	cout << "Second coordinate: " << p1.Y() << endl;
+
+	p1.X(2.0);
+	p1.Y(5.0);
+
+	cout << "First coordinate: " << p1.X() << endl;
+	cout << "Second coordinate: " << p1.Y() << endl;	
 
 	return 0;
 }
