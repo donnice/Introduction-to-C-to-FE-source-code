@@ -11,7 +11,66 @@
 
 using namespace std;
 
-//Complex
+class Complex
+{
+private:
+	// Self constructor
+	double real;
+	double imag;
+
+public:
+	Complex();
+	Complex(double rel, double img);
+	virtual ~Complex();
+
+	Complex add(const Complex& c2) const;
+	Complex operator + (const Complex& c2) const;
+	double getReal() const;
+	double getImag() const;
+
+};
+
+Complex::Complex()
+{
+	// Nothing
+}
+
+Complex::Complex(double rel, double img)
+{
+	real = rel;
+	imag = img;
+}
+
+Complex::~Complex()
+{
+	cout << "Complex is destructed." << endl;
+}
+
+double Complex::getReal() const
+{
+	return real;
+}
+
+double Complex::getImag() const
+{
+	return imag;
+}
+
+Complex Complex::add(const Complex& c2) const
+{	// Add two complex numbers
+
+	Complex result;
+	result.real = real + c2.real;
+	result.imag = imag + c2.imag;
+
+	return result;
+}
+
+Complex Complex::operator + (const Complex& c2) const
+{
+	// Add two complex numbers
+	
+}
 
 int main()
 {
@@ -20,5 +79,12 @@ int main()
 
 	cout << "Real of comx1:" << comx1.real() << "::::Imaginary of comx1:" << comx1.imag() << endl;
 	cout << "Real of comx2:" << comx2.real() << "::::Imaginary of comx2:" << comx2.imag() << endl;
+	
+	Complex z1(-23.0, 5.3);
+	Complex z2(2.0, 3.0);
+	Complex z3 = z1.add(z2);
+
+	cout << "Real of z3:" << z3.getReal() << "::::Imaginary of z3:" << z3.getImag() << endl;
+
 	return 0;
 }
