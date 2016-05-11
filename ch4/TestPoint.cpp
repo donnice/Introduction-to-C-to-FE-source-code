@@ -26,18 +26,10 @@ public:
 
 	double X() const;				// return X
 	double Y() const;				// return Y
+	Point MidPoint(const Point& p2) const;
 
 	void X(double NewX);			// Set X
 	void Y(double NewY);			// Set Y
-
-};
-
-class Point::public Shape
-{
-private:
-
-	// Properties for x- and y-coordinates
-	
 };
 
 Point::Point()
@@ -54,6 +46,11 @@ Point::Point(double xs, double ys)
 Point::~Point()
 {
 	cout << "Point is destructed" << endl;
+}
+
+Point Point::MidPoint(const Point& p2) const
+{
+	return Point((x+p2.x)*0.5,(y+p2.y)*0.5);
 }
 
 double Point::X() const
@@ -76,8 +73,6 @@ void Point::Y(double NewY)
 	y = NewY;
 }
 
-
-
 int main()
 {
 	Point p1(1.0,3.14);
@@ -90,6 +85,11 @@ int main()
 
 	cout << "First coordinate: " << p1.X() << endl;
 	cout << "Second coordinate: " << p1.Y() << endl;	
+
+	Point pL(0.0,0.0);
+	Point pU(1.0,1.0);
+	Point pM = pL.MidPoint(pU);
+	cout << "MidPoint: " << pM.X() << "," <<pM.Y() << endl;
 
 	return 0;
 }
