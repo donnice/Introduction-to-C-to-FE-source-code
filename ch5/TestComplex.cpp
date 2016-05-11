@@ -69,7 +69,11 @@ Complex Complex::add(const Complex& c2) const
 Complex Complex::operator + (const Complex& c2) const
 {
 	// Add two complex numbers
-	
+	Complex result;
+	result.real = real + c2.real;
+	result.imag = imag + c2.imag;
+
+	return result;
 }
 
 int main()
@@ -83,8 +87,10 @@ int main()
 	Complex z1(-23.0, 5.3);
 	Complex z2(2.0, 3.0);
 	Complex z3 = z1.add(z2);
+	Complex z4 = z1 + z2;
 
 	cout << "Real of z3:" << z3.getReal() << "::::Imaginary of z3:" << z3.getImag() << endl;
+	cout << "Real of z4:" << z4.getReal() << "::::Imaginary of z4:" << z4.getImag() << endl;
 
 	return 0;
 }
