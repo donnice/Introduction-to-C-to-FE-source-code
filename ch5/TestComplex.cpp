@@ -8,6 +8,8 @@
 #include <string>
 #include <complex>
 #include <stdio.h>
+#include <cmath>
+#include <math.h>
 
 using namespace std;
 
@@ -29,6 +31,13 @@ public:
 	double getImag() const;
 
 };
+
+
+friend Complex exp(const Complex& c);		// Exponential
+//friend Complex cos(const Complex& c);		// Cosine function
+//friend Complex sin(const Complex& c);		// Sine function
+friend Complex cosh(const Complex& c);		// Hyperbolic cosine
+//friend Complex sinh(const Complex& c);		// Hyperbolic sine
 
 Complex::Complex()
 {
@@ -93,4 +102,18 @@ int main()
 	cout << "Real of z4:" << z4.getReal() << "::::Imaginary of z4:" << z4.getImag() << endl;
 
 	return 0;
+}
+
+Complex
+
+Complex exp(const Complex& c)
+{
+	// Exponential function
+	double ex = exp(c.real);
+	return Complex(ex * cos(c.imag), ex * sin(c.y));
+}
+
+Complex cosh(const Complex& z)
+{
+	return (exp(z) + exp(-z))*0.5;
 }
