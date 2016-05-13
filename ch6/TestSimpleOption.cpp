@@ -63,6 +63,21 @@ int main()
 	opt->print();
 	(*opt).print();
 
+	// delete
+	delete opt;
+	delete opt2;
+
+	SimpleOption* optArray;
+	const int N = 10;
+	optArray = new SimpleOption[N];	// Default constructor called
+	for(int j = 0; j < N; j++)
+	{
+		optArray[j].T = 1.0;		// 1 year expiry
+		optArray[j].K = 100.0;		// Strike price
+		optArray[j].print();
+	}
+
+	delete [] optArray;
 
 	return 0;
 }
