@@ -30,14 +30,14 @@ public:
 	double getReal() const;
 	double getImag() const;
 
+	friend Complex exp(const Complex& c);				// Exponential
+	//friend Complex cos(const Complex& c);				// Cosine function
+	//friend Complex sin(const Complex& c);				// Sine function
+	//friend Complex cosh(const Complex& c);			// Hyperbolic cosine
+	//friend Complex sinh(const Complex& c);			// Hyperbolic sine
+
 };
 
-
-friend Complex exp(const Complex& c);		// Exponential
-//friend Complex cos(const Complex& c);		// Cosine function
-//friend Complex sin(const Complex& c);		// Sine function
-friend Complex cosh(const Complex& c);		// Hyperbolic cosine
-//friend Complex sinh(const Complex& c);		// Hyperbolic sine
 
 Complex::Complex()
 {
@@ -85,6 +85,13 @@ Complex Complex::operator + (const Complex& c2) const
 	return result;
 }
 
+Complex exp(const Complex& c)
+{
+	// Exponential function
+	double ex = exp(c.real);
+	return Complex(ex * cos(c.imag), ex * sin(c.real));
+}
+
 int main()
 {
 	complex<long> comx1(32,45);
@@ -97,23 +104,12 @@ int main()
 	Complex z2(2.0, 3.0);
 	Complex z3 = z1.add(z2);
 	Complex z4 = z1 + z2;
+	Complex z5 = exp(z1);
 
 	cout << "Real of z3:" << z3.getReal() << "::::Imaginary of z3:" << z3.getImag() << endl;
 	cout << "Real of z4:" << z4.getReal() << "::::Imaginary of z4:" << z4.getImag() << endl;
 
+	cout << "Exp of z4:" << z5.getReal() << "::::Imaginary of z5:" << z5.getImag() << endl;
+
 	return 0;
-}
-
-Complex
-
-Complex exp(const Complex& c)
-{
-	// Exponential function
-	double ex = exp(c.real);
-	return Complex(ex * cos(c.imag), ex * sin(c.y));
-}
-
-Complex cosh(const Complex& z)
-{
-	return (exp(z) + exp(-z))*0.5;
 }
