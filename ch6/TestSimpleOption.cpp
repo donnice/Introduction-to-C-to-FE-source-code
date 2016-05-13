@@ -49,15 +49,20 @@ int main()
 		myPortfolio[j].print();
 	}
 
-	myPortfolio[-1].print();
-	myPortfolio[1000].print();
+	// myPortfolio[-1].print();
+	// myPortfolio[1000].print();
+
+	cout << "======================================" << endl;
 
 	SimpleOption* opt;
 	SimpleOption* opt2;
 
 	// Call default constructor
 	opt = new SimpleOption;
+	// OR error: member reference type 'SimpleOption *' is a pointer; maybe you meant to use '->'?
 	opt->print();
+	(*opt).print();
+
 
 	return 0;
 }
