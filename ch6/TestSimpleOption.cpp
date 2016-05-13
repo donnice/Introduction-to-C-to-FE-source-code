@@ -52,5 +52,12 @@ int main()
 	myPortfolio[-1].print();
 	myPortfolio[1000].print();
 
+	SimpleOption* opt;
+	SimpleOption* opt2;
+
+	// Call default constructor
+	opt = new SimpleOption;
+	opt->print();
+
 	return 0;
 }
