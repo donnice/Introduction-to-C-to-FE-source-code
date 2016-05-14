@@ -1,3 +1,12 @@
+// ComplexArray.hpp
+//
+// Simple Complex Array class.
+//
+// (C) Shujie CHEN @2016
+
+#ifndef Complex_hpp
+#define Complex_hpp
+
 #include <iostream>
 #include <string>
 #include <complex>
@@ -22,6 +31,7 @@ public:
 	Complex add(const Complex& c2) const;
 	Complex operator + (const Complex& c2) const;
 	Complex operator * (const Complex& c2) const;
+	Complex operator * (const double& d2) const;
 	double getReal() const;
 	double getImag() const;
 
@@ -32,3 +42,5 @@ public:
 	//friend Complex sinh(const Complex& c);			// Hyperbolic sine
 
 };
+
+#endif

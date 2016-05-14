@@ -63,3 +63,13 @@ Complex Complex::operator * (const Complex& c2) const
 
 	return result;
 }
+
+Complex Complex::operator * (const double& d2) const
+{
+	// Times the complex number with a double
+	Complex result;
+	result.real = real*d2;
+	result.imag = imag*d2;
+
+	return result;
+}
