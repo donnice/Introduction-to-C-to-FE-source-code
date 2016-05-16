@@ -22,7 +22,7 @@ void genericFunction(double myX, double myY,
 
 double add(double x, double y)
 {
-	cout << "** Adding two numbers: " << x << "," << y << endl;
+	std::cout << "** Adding two numbers: " << x << "," << y << endl;
 	return x+y;
 }
 
@@ -57,6 +57,9 @@ namespace Implementation2
 	double G2(double x, double y){ return -x*y; }
 }
 
+using namespace StandardInterface;
+using namespace Implementation2;
+
 int main()
 {
 	double x = 3.0;
@@ -67,6 +70,11 @@ int main()
 
 	StandardInterface::func1 = Implementation1::F1;
 	StandardInterface::func2 = Implementation1::F2;
+
+	func1 = G1;
+	func2 = G2;
+
+	cout << func1(2.0) << ", " << func2(3.0, -4.0) << endl; 
 
 	return 0;
 }
