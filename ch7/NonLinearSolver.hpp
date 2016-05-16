@@ -45,14 +45,25 @@ private:
 	// Redundant data but useful as a log and postprocessing
 	int n;			// Number of steps to take
 	double myTol;
-	double aCurrent, bCurrent;
+	double aCurrent; double bCurrent;
 	double midPoint;
 
 public:
 
 	double solve()
 	{
-		
+		double aPrevious = a;
+		double bPrevious = b;
+		n = 1;
+		myTol = b - a; // Variable tolearance, starts at main interval
+L1:
+		midPoint = 0.5*(aPrevious + bPrevious);
+
+		// Default interval
+		if(myF(midPoint) <= 0.0)
+		{
+			aCurrent = 
+		}
 	}
 
 
