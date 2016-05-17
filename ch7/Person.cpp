@@ -23,10 +23,10 @@ Person::Person(const string& name, const int& age)
 	ag = age;
 }
 
-Person::~Person()
-{
-	cout << "Warning: Person is deleted" << endl;
-}
+// Person::~Person()
+// {
+// 	cout << "Warning: Person is deleted" << endl;
+// }
 
 void Person::print() const
 {

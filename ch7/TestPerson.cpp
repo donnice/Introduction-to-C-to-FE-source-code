@@ -22,7 +22,7 @@ public:
 	Employee();
 	Employee(const string& name, const int& age, const string& function,
 		const double& salary, const int& workingAge);
-	virtual ~Employee();
+	//virtual ~Employee();
 	void print() const;	// Print belongs to Employee
 };
 
@@ -40,10 +40,10 @@ Employee::Employee(const string& name, const int& age, const string& function,
 	wAge = workingAge;
 }
 
-Employee::~Employee()
-{
-	cout << "Warning: Employee is destructed!" << endl;
-}
+// Employee::~Employee()
+// {
+// 	cout << "Warning: Employee is destructed!" << endl;
+// }
 
 void Employee::print() const
 {

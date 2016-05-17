@@ -21,7 +21,7 @@ public:
 public:
 	Person();
 	Person(const string& name, const int& age);
-	virtual ~Person();
+	//virtual ~Person();
 	void print() const;
 	int age() const;
 };
