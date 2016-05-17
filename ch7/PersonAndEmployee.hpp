@@ -15,5 +15,17 @@ public:
 
 	// Data
 	string nam;
-	
+	int ag;
+
+public:
+	Person(const string& name, const int& age)
+	{
+		nam = name;
+		ag = age;
+	}
+
+	void print() const
+	{
+		
+	}
 }
