@@ -62,8 +62,26 @@ L1:
 		// Default interval
 		if(myF(midPoint) <= 0.0)
 		{
-			aCurrent = 
+			aCurrent = midPoint;
+			bCurrent = bPrevious;
 		}
+
+		if(myF(midPoint) > 0.0)
+		{
+			aCurrent = aPrevious;
+			bCurrent = midPoint;
+		}
+
+		myTol *= 0.5; // At each step we have a subdivision
+
+		aPrevious = aCurrent;
+		bPrevious = bCurrent;
+		n++;
+
+		if(myTol > tol) goto L1;
+
+		// Now the answer
+		
 	}
 
 
