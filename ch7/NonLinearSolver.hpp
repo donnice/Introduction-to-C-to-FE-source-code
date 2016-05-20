@@ -81,6 +81,19 @@ L1:
 		if(myTol > tol) goto L1;
 
 		// Now the answer
+		midPoint = 0.5*(aPrevious + bPrevious);
+
+		return midPoint;
+	}
+
+	double accuracy() const
+	{
+		// How close is our solution?
+		return myTol;
+	}
+
+	void printStatistics()
+	{
 		
 	}
 
