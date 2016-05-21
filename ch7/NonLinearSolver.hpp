@@ -121,7 +121,20 @@ public:
 private:
 	double x0;	// Initial guess
 	double xCurrent;
-	int n;		// Number of strps taken until now
+	int n;		// Number of steps taken until now
+
+public:
+	NewtonRaphsonSolver(double guess)
+	{
+		x0 = guess;
+	}
+
+	double solve()
+	{
+		double xPrevious = x0;
+		
+	}
+
 };
 
 }
