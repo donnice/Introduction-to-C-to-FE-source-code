@@ -132,8 +132,37 @@ public:
 	double solve()
 	{
 		double xPrevious = x0;
-		
+		double hn = 100.0;
+		n = 1;
+L1:
+		hn = -myF(xPrevious) / derivative(xPrevious);
+		xCurrent = xPrevious + hn;
+
+		xPrevious = xCurrent;
+		n++;
+		if(fabs(hn) > tol) goto L1;
+
+		return xCurrent;
 	}
+
+	void printStatistics() const
+	{
+		cout << "\nData pertaining to Newton Raphson method\n";
+		cout << "Value: " << xCurrent << endl;
+		cout << "Number of iterations (actual): " << n << endl;
+	}
+
+};
+
+class SecantMethodSolver : public NonLinearSolver
+{
+	// Two-step nonlinear solver
+
+private:
+
+	double x0;		// Initial guess
+	double x1;		// Initial guess
+
 
 };
 
