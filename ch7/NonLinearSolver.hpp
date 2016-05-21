@@ -94,10 +94,34 @@ L1:
 
 	void printStatistics()
 	{
-		
+		double m = solve();
+
+		cout << "\nData pertaining to Bisection method\n";
+		cout << "Interval containing value:("<< aCurrent << ","
+											<< bCurrent << ")\n";
+		cout << "Value: " << m << endl;
+		cout << "Number of iterations:" << n << endl;
+		cout << "Number of iterations (scheduled):" << estimate() << endl;
 	}
 
+	long estimate() const
+	{	// Estimates the # of needed iterations
+		double tmp = (b-a)/tol;
+		double val = 1.0 +(::log(tmp)/::log(2.0));
 
+		return ::ceil(val);
+	}
+};
+
+class NewtonRaphsonSolver : public NonlinearSolver
+{
+public:
+	double (*derivative)(double x);
+
+private:
+	double x0;	// Initial guess
+	double xCurrent;
+	int n;		// Number of strps taken until now
 };
 
 }
