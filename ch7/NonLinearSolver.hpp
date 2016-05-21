@@ -160,8 +160,34 @@ class SecantMethodSolver : public NonLinearSolver
 
 private:
 
-	double x0;		// Initial guess
-	double x1;		// Initial guess
+	double x0;				// Initial guess
+	double x1;				// Initial guess
+
+	// Parameters in iterations
+	double xOld, xNew;		// x(n-1) and x(n)
+	double fOld, fNew;		// f(n-1) and f(n)
+	double xCurrent;
+	long n;
+
+public:
+
+	SecantMethodSolver(double guessZero, double guessOne,
+						double (*myFunction)(double x))
+	{
+		x0 = guessZero;
+		x1 = guessOne;
+		myF = myFunction;
+
+		xOld = x0;
+		xNew = x1;
+		xCurrent = xNew;
+		fOld = myF(xOld); fNew = myF(xNew);
+	}
+
+	double solve()
+	{
+		
+	}
 
 
 };
