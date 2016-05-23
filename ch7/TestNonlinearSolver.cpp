@@ -19,5 +19,16 @@ double Func1(double x)
 
 double DerivativeFunc1(double x)
 {
+	// Just the derivative, need for Newton's method
+	return (0.5 * x) - ::cos(x);
+}
+
+int main()
+{
+	using namespace NS_NonlinearSolver;
+
+	// 1. Bisection method
+
+	//
 	
 }
