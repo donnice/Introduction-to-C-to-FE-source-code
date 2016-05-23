@@ -186,9 +186,74 @@ public:
 
 	double solve()
 	{
-		
+		double diff;
+		double hn;
+		n = 1;
+L1:
+		assert(fOld != fNew);
+		diff = (xNew - xOld)/(fNew - fOld);
+		hn = -myF(xNew) * diff;
+		xCurrent = xNew + hn;
+
+		n++;
+		if(::fabs(hn) <= tol)
+		{
+			return xCurrent;
+		}
+
+		//update all registers
+		xOld = xNew; xNew = xCurrent;
+		fOld = myF(xOld); fNew = myF(xNew);
+
+		goto L1;
 	}
 
+	void printStatistics() const
+	{
+		cout << "\nData pertaining to Secant method\n";
+		cout << "Value: " << xCurrent << endl;
+		cout << "Number of iterations (actual): " << n << endl;
+	}
+
+};
+
+class SteffensensSolver : public NonlinearSolver
+{ // One-step nonlinear solver
+private:
+	SteffensensSolver(double guess, double(*myFunction)(double x))
+	{
+		x0 = guess; xPrevious = x0;
+		myF = myFunction;
+	}
+
+	double solve()
+	{
+		double tmp;
+		double hn;
+		n = 1;
+		xPrevious = x0;
+L1:
+		tmp = myF(xPrevious);
+		hn = (myF(xPrevious + tmp) - tmp)/tmp;
+		hn = tmp/hn;
+		xCurrent = xPrevious - hn;
+		xPrevious = xCurrent;
+
+		n++;
+		if(::fabs(fn) <= tol)
+		{
+			return xCurrent;
+		}
+
+		goto L1;
+	}
+
+	void printStatistics() const
+	{
+		cout << "\nData pertaining to Secant method\n";
+		cout << "Value: " << xCurrent << endl;
+		cout << "Number of iterations (actual): " << n << endl;
+	}
 
 };
 
