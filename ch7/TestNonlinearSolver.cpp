@@ -5,8 +5,9 @@
 // (C) Shujie CHEN @2016
 //
 
-#include "NonlinearSolver.hpp"
+#include "NonLinearSolver.hpp"
 #include <math.h>
+#include <assert.h>
 #include <iostream>
 using namespace std;
 
@@ -29,6 +30,25 @@ int main()
 
 	// 1. Bisection method
 
-	//
+	// Initial interval
+	double a = 1.52;
+	double b = 2.0;
+
+	// In this version all data is public; in a later version
+	// make it private
+	BisectionSolver bs;
+	bs.myF = Func1;
+	bs.a = a; bs.b = b;
+	bs.tol = 0.0001;
+
+	double result = bs.solve();
+	cout << "Bisection:" << result << ", " << bs.accuracy() << endl;
+
+	bs.printStatistics();
+
+	// 2. Newton Methos
 	
+
+	return 0;
+
 }

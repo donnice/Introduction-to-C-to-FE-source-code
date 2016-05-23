@@ -1,4 +1,4 @@
-// NonLinearSolver.cpp
+// NonlinearSolver.cpp
 // 
 // Various nonlinear solvers in one dimension
 //
@@ -21,7 +21,7 @@ public:
 
 	double tol;					// Desired accuracy
 
-	NonLinearSolver() {}
+	NonlinearSolver() {}
 	NonlinearSolver& operator = (const NonlinearSolver& n2) {}
 
 public:
@@ -32,7 +32,7 @@ public:
 
 };
 
-class BisectionSolver: public NonLinearSolver
+class BisectionSolver: public NonlinearSolver
 {
 public:
 
@@ -154,7 +154,7 @@ L1:
 
 };
 
-class SecantMethodSolver : public NonLinearSolver
+class SecantMethodSolver : public NonlinearSolver
 {
 	// Two-step nonlinear solver
 
@@ -220,6 +220,12 @@ L1:
 class SteffensensSolver : public NonlinearSolver
 { // One-step nonlinear solver
 private:
+	double x0;
+
+	double xPrevious, xCurrent;
+	long n;
+
+public:
 	SteffensensSolver(double guess, double(*myFunction)(double x))
 	{
 		x0 = guess; xPrevious = x0;
@@ -240,7 +246,7 @@ L1:
 		xPrevious = xCurrent;
 
 		n++;
-		if(::fabs(fn) <= tol)
+		if(::fabs(hn) <= tol)
 		{
 			return xCurrent;
 		}
