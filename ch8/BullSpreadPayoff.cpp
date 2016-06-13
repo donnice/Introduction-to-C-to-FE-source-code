@@ -7,6 +7,7 @@
 #include "BullSpreadPayoff.hpp"
 
 
+using namespace std;
 // Constructor and destructor
 BullSpreadPayoff::BullSpreadPayoff(): Payoff()
 { // Default constructor
@@ -27,4 +28,18 @@ BullSpreadPayoff::BullSpreadPayoff(double strike1, double strike2,
 	sellValue = SellValue;
 }
 
-BullSpreadPayoff::
+BullSpreadPayoff::BullSpreadPayoff(const BullSpreadPayoff& source):Payoff(source)
+{ // Copy constructor
+
+	K1 = source.K1;
+	K2 = source.K2;
+
+	buyValue = source.buyValue;
+	sellValue = source.sellValue;
+}
+
+BullSpreadPayoff::~BullSpreadPayoff()
+{ // Destructor
+	cout << "I am destructed!" << endl;
+}
+
