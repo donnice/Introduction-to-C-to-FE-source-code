@@ -1,6 +1,6 @@
 // BullSpreadPayoff.cpp
 //
-// Classes for payoff for BullSpreadPayoff
+// Classes for payoff for BullSpreadPayoff, P137
 //
 // (C) Shujie CHEN @2016
 
