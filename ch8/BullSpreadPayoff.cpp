@@ -77,7 +77,32 @@ BullSpreadPayoff& BullSpreadPayoff::operator = (const BullSpreadPayoff& source)
 	// Call base class assignment
 	Payoff::operator = (source);
 
-	
+	// Copy state
+	K1 = source.K1;
+	K2 = source.K2;
+
+	buyValue = source.buyValue;
+	sellValue = source.sellValue;
+
+	return *this;
+}
+
+double BullSpreadPayoff::payoff(double S) const
+{ // Based on Hull's Book
+
+	if (S >= K2)
+		return K2-K1;
+	if ( S<= K1)
+		return 0.0;
+
+	// In the interval [K1, K2]
+	return S - K1;
+}
+
+double BullSpreadPayoff::profit(double S) const
+{ // Profit
+
+	return payoff(S) - (buyValue - sellValue);
 
 }
 
