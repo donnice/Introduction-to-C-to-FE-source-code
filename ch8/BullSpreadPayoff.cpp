@@ -43,3 +43,42 @@ BullSpreadPayoff::~BullSpreadPayoff()
 	cout << "I am destructed!" << endl;
 }
 
+// Selectors
+double BullSpreadPayoff::Strike1() const
+{ // Return K1
+
+	return K1;
+}
+
+double BullSpreadPayoff::Strike2() const
+{ // Return K2
+
+	return K2;
+}
+
+void BullSpreadPayoff::Strike1(double NewStrike1)
+{ // Set K1
+
+	K1 = NewStrike1;
+}
+
+void BullSpreadPayoff::Strike2(double NewStrike2)
+{ // Set K2
+
+	K2 = NewStrike2;
+}
+
+BullSpreadPayoff& BullSpreadPayoff::operator = (const BullSpreadPayoff& source)
+{ // Assignment operator
+
+	// Exit if same object
+	if (this == &source) return *this;
+
+	// Call base class assignment
+	Payoff::operator = (source);
+
+	
+
+}
+
+
