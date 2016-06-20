@@ -22,7 +22,7 @@ int main()
 
 	double K1 = 30.0;		// Strike price of bought call
 	double K2 = 35.0;		// Strike price of sell call
-	double costBuy = 3.0	// Cost to buy a call;
+	double costBuy = 3.0;	// Cost to buy a call;
 	double sellPrice = 1.0; // Sell price for call
 	BullSpreadPayoff bs(K1, K2, costBuy, sellPrice);	// Hull example
 
