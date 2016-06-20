@@ -58,3 +58,24 @@ Point Point::substract(const Point& p) const
 	return Point(x - p.x, y - p.y);
 }
 
+Point Point::scale(const Point& p) const
+{ // Scale a Point by another Point
+	return Point(x*p.x, y*p.y);
+}
+
+// Copy
+Point& Point::copy(const Point& p)
+{ // Copy p in current
+	x = p.x;
+	y = p.y;
+
+	return *this;
+}
+
+ostream& operator << (ostream& os, const Point& p)
+{ // Output to screen
+
+	os << "Point: (" << p.getX() << ", " << p.getY() << ")" << endl;
+
+	return os;
+}
