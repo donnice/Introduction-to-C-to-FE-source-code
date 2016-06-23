@@ -67,5 +67,36 @@ public:
 		h = w = size;
 	}
 
+};
+
+class GoodSquare : public Shape
+{ // Version 2, adapts a Rectangle's interface
+private:
+	Rectangle r;
+public:
+	GoodSquare()
+	{
+		double size = 1.0;
+		r = Rectangle(Point(), size, size);	// Unit Square
+	}
+
+	GoodSquare(const Point& basePoint, double size)
+	{
+		r = Rectangle(basePoint, size, size);
+	}
+
+	void setSize(double newSize)
+	{ // An adaptor function, this ensures that consttaints
+	  // on square are always satisfied
+
+		r.setHeight(newSize);
+		r.setWidth(newSize);
+	}
+
+	void print() const
+	{
+	  // Delegate to the embedded rectangle's output mechanism
+		r.print();
+	}
 
 };
