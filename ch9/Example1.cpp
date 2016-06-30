@@ -21,6 +21,9 @@ public:
 	{
 		cout << "I'm base!\n";
 	}
+	virtual double calculate(double d) const = 0;
+
+	void doIt() { cout << "in base\n"; }
 };
 
 class D1:public Base
@@ -78,8 +81,102 @@ int main()
 		cout << "Typees are the same!" << endl;
 	}
 
-	
+	if(typeid(d1) != typeid(d2))
+	{
+		cout << "Types are NOT the same!" << endl;
+	}
 
+	Base* b = &d1;
+	const type_info& myRef2 = typeid(*b);
+
+	cout << "Human readable name:" << myRef.name() << endl;
+
+	// Create an array of Base class pointers
+	int size = 10;
+	Base *myArr[10];	// An array of pointers
+
+	for (int j = 0; j < 6; j++)
+	{
+		myArr[j] = &d1;
+	}
+
+	for (int k = 6; k < size; k++)
+	{
+		myArr[k] = &d2;
+	}
+
+	// Now 'filter' the 'real' types
+	int counterD1 = 0;
+	int counterD2 = 0;
+
+
+	for (int i = 0; i < size; i++)
+	{
+		if(typeid(*myArr[i]) == typeid(D1))
+		{
+			cout << "We have a D1!\n";
+			counterD1++;
+		}
+
+		if(typeid(*myArr[i]) == typeid(D2))
+		{
+			cout << "We have a D2!\n";
+			counterD2++;
+		}
+	}
+
+	cout << "Number of D1s:" << counterD1 << endl;
+	cout << "Number of D2s:" << counterD2 << endl;
+
+
+	// dynamic casting
+	D1 d1A;
+	Base* base2 = &d1A;
+
+	D1* d1Cast = dynamic_cast<D1*> (base2);
+
+	if (d1Cast == 0)
+	{
+		cout << "Cast not possible!" << endl;
+	}
+	else
+	{ // This function get called
+
+		cout << "Cast is possible:" << endl;
+		d1Cast -> print();
+	}
+
+	// Now cast a D1 to a D2 (not possible)
+	D2 *d2Cast = dynamic_cast<D2*> (base2);
+	if (d2Cast == 0)
+		cout << "Case not possible!" << endl;
+	else
+	{
+		cout << "Cast is possible:" << endl;
+		d2Cast -> print();
+	}
+
+	// Upcasting
+	D1* dd = new D1;
+	Base* b3 = dynamic_cast<Base*>(dd);
+
+	if (b3 == 0)
+	{
+		cout << "Cast not possible!" << endl;
+	}	
+	else
+	{
+		cout << "Cast is possible:" << endl;
+		b3 -> print();
+		b3 -> doIt();
+	}
+	delete dd;
+
+	// Static casting
+	Base* bA = &d1;
+	Base* bB = &d2;
+
+	D1* dB = static_cast<D1*>(bA);
 
 	return 0;
 }
