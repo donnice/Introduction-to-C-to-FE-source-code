@@ -176,7 +176,29 @@ int main()
 	Base* bA = &d1;
 	Base* bB = &d2;
 
-	D1* dB = static_cast<D1*>(bA);
+	D1* dA = static_cast<D1*>(bA);
+
+	// Unsafe static cast
+	cout << "Unsafe cast ..." << endl;
+	D1* dB = static_cast<D1*> (bB);
+	dB -> print();
+
+	// Const Cast
+	cout << "\n const cast stuff \n";
+	D1 dAny;
+	const Base* bConst = &dAny;
+	bConst -> print();
+
+	Base* bNonConst = const_cast<Base*>(bConst);
+	bNonConst->print();
+
+	// static, dynamic, reinterpret doesn't work
+
+	cout << "\n Reinterpret cast stuff\n";
+
+	D2 d2Any;
+	Base* bb = reinterpret_cast<Base*>(&d2Any);
+	bb->print();
 
 	return 0;
 }
