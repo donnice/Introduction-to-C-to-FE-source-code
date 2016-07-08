@@ -2,6 +2,11 @@
 //
 // page 151 Run-time behavior of C++
 //
+// learned type_id, which can help us to know the type of a class
+// And casting, which is converting an object pointer of one class to another
+//
+// End at p157
+//
 // (C) Shujie CHEN @2016
 //
 
